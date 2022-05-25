@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express.Router();
-const { getAllStudents, getOneStudent, createStudent, updateStudent, deleteOne } = require('../controllers/student');
+const studentsRouter = express.Router();
+const { getAllStudents, getOneStudent, createStudent, updateStudent, deleteOneStudent } = require('../controllers/student');
 
-app.route("/").get(getAllStudents).post(createStudent);
-app.route("/:id").get(getOneStudent).put(updateStudent).delete(deleteOne)
+studentsRouter.route("/").get(getAllStudents).post(createStudent);
+studentsRouter.route("/:id").get(getOneStudent).put(updateStudent).delete(deleteOneStudent)
 
-module.exports = app;
+module.exports = studentsRouter;

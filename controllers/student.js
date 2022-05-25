@@ -1,4 +1,3 @@
-const { restart } = require('nodemon');
 const Students = require('../models/student')
 
 const getAllStudents = async (req, res) => {
@@ -43,7 +42,6 @@ const createStudent = async (req, res) => {
             success: false,
             error: err
         })
-        
     }
 }
 
@@ -63,7 +61,7 @@ const updateStudent = async (req, res) => {
     }
 }
 
-const deleteOne = async (req, res) => {
+const deleteOneStudent = async (req, res) => {
     try {
         await Students.findByIdAndDelete(req.params.id)
         res.json({
@@ -78,12 +76,10 @@ const deleteOne = async (req, res) => {
     }
 }
 
-
-
 module.exports = {
     getAllStudents,
     getOneStudent,
     createStudent,
     updateStudent,
-    deleteOne
+    deleteOneStudent
 };
